@@ -111,6 +111,7 @@
   align-items: center;
   justify-content: center;
   background: var(--color-primary);
+  color: var(--color-on-primary);
   border-radius: var(--rounded-md);
   font-size: 22px;
   cursor: pointer;

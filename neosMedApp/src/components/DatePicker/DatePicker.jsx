@@ -131,7 +131,7 @@ export default function DatePicker() {
         {(!isToday()) && (
           <div className="calendarFixedWrapper">
             <button className="calendarIconBtn" onClick={handleOpenCalendar} aria-label="Open calendar" id="calendar-icon">
-              📅
+              <i className="ri-calendar-event-line"></i>
             </button>
           </div>
         )}
@@ -163,7 +163,7 @@ export default function DatePicker() {
         <span className="dateTextLabel">{formatDateText()}</span>
         {!isToday() && (
           <button className="todaySnapBtn" onClick={handleTodaySnap} id="today-snap-btn">
-            {selectedDate > new Date() ? '< Today' : 'Today >'}
+            {selectedDate > new Date() ? <><i className="ri-arrow-left-s-line"></i> Today</> : <>Today <i className="ri-arrow-right-s-line"></i></>}
           </button>
         )}
       </div>
@@ -173,13 +173,13 @@ export default function DatePicker() {
         <div className="calendarSheet">
           <div className="calendarHeader">
             <button className="calendarNavBtn" onClick={() => setCalendarMonth(prev => new Date(prev.getFullYear(), prev.getMonth() - 1, 1))} aria-label="Previous month">
-              ◀
+              <i className="ri-arrow-left-s-line"></i>
             </button>
             <span className="calendarMonthLabel">
               {MONTH_NAMES[calendarMonth.getMonth()]} {calendarMonth.getFullYear()}
             </span>
             <button className="calendarNavBtn" onClick={() => setCalendarMonth(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1))} aria-label="Next month">
-              ▶
+              <i className="ri-arrow-right-s-line"></i>
             </button>
           </div>
           <div className="calendarWeekHeader">

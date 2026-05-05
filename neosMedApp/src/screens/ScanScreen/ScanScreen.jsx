@@ -78,10 +78,10 @@ export default function ScanScreen() {
         <div className="cameraView">
           <div className="cameraTopBar">
             <button className="cameraBackBtn" onClick={() => setActiveScreen('home')} aria-label="Go back">
-              ←
+              <i className="ri-arrow-left-line"></i>
             </button>
             <button className="cameraFlashBtn" aria-label="Toggle flash">
-              ⚡
+              <i className="ri-flashlight-fill"></i>
             </button>
           </div>
           <div className="cameraFrame">
@@ -93,7 +93,7 @@ export default function ScanScreen() {
           </div>
           <div className="cameraBottomBar">
             <button className="galleryBtn" onClick={handleGallery} aria-label="Choose from gallery" id="gallery-btn">
-              🖼️
+              <i className="ri-image-line"></i>
             </button>
             <button className="captureBtn" onClick={handleCapture} aria-label="Capture photo" id="capture-btn" />
             <div className="captureBtnPlaceholder" />
@@ -119,7 +119,7 @@ export default function ScanScreen() {
       <div className="scanScreen" id="scan-review-screen">
         <div className="addManualHeader" style={{ borderBottom: '1px solid var(--color-hairline)', padding: '16px', position: 'sticky', top: 0, background: 'var(--color-canvas)', zIndex: 10, display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button className="addManualBackBtn" onClick={() => setPhase('camera')} aria-label="Go back" style={{ width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-surface-card)', borderRadius: '9999px', fontSize: 18, cursor: 'pointer', border: 'none' }}>
-            ←
+            <i className="ri-arrow-left-line"></i>
           </button>
           <span style={{ fontSize: 18, fontWeight: 600, color: 'var(--color-ink)' }}>Review Results</span>
         </div>
@@ -134,8 +134,8 @@ export default function ScanScreen() {
                   {item.edited && <span className="scanCardEditedTag">Edited</span>}
                 </div>
                 <div className="scanCardActions">
-                  <button className="scanCardEditBtn" onClick={() => handleEditStart(item)} aria-label="Edit">✏️</button>
-                  <button className="scanCardRemoveBtn" onClick={() => handleRemove(item.id)} aria-label="Remove">🗑️</button>
+                  <button className="scanCardEditBtn" onClick={() => handleEditStart(item)} aria-label="Edit"><i className="ri-pencil-line"></i></button>
+                  <button className="scanCardRemoveBtn" onClick={() => handleRemove(item.id)} aria-label="Remove"><i className="ri-delete-bin-line"></i></button>
                 </div>
               </div>
               <div className="scanCardDetails">
@@ -150,7 +150,7 @@ export default function ScanScreen() {
                 )}
               </div>
               {item.confidence < 0.7 && !item.edited && (
-                <div className="scanCardWarning">⚠️ Low confidence — please verify</div>
+                <div className="scanCardWarning"><i className="ri-error-warning-fill"></i> Low confidence — please verify</div>
               )}
 
               {/* Edit form */}
@@ -208,7 +208,7 @@ export default function ScanScreen() {
 
           {results.length === 0 && (
             <div style={{ textAlign: 'center', padding: '48px 24px' }}>
-              <div style={{ fontSize: 48, marginBottom: 16 }}>📋</div>
+              <div style={{ fontSize: 48, marginBottom: 16 }}><i className="ri-clipboard-line"></i></div>
               <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--color-ink)', marginBottom: 8 }}>You removed all medicines</div>
               <div style={{ fontSize: 14, color: 'var(--color-mute)', marginBottom: 24 }}>Add at least one to continue</div>
               <button className="scanAddManualLink" onClick={() => setActiveScreen('addManual')}>
@@ -227,7 +227,7 @@ export default function ScanScreen() {
       <div className="scanScreen" id="scan-confirm-screen">
         <div style={{ borderBottom: '1px solid var(--color-hairline)', padding: '16px', position: 'sticky', top: 0, background: 'var(--color-canvas)', zIndex: 10, display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button style={{ width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-surface-card)', borderRadius: '9999px', fontSize: 18, cursor: 'pointer', border: 'none' }} onClick={() => setPhase('review')} aria-label="Go back">
-            ←
+            <i className="ri-arrow-left-line"></i>
           </button>
           <span style={{ fontSize: 18, fontWeight: 600, color: 'var(--color-ink)' }}>Confirm</span>
         </div>
@@ -238,7 +238,7 @@ export default function ScanScreen() {
           <div className="scanConfirmList">
             {results.map(item => (
               <div className="scanConfirmItem" key={item.id}>
-                <span className="scanConfirmIcon">💊</span>
+                <span className="scanConfirmIcon"><i className="ri-capsule-fill"></i></span>
                 <div className="scanConfirmItemInfo">
                   <div className="scanConfirmItemName">{item.name}</div>
                   <div className="scanConfirmItemDetail">{item.strength}mg · {item.unit} · {item.frequency}x/day</div>
@@ -257,7 +257,7 @@ export default function ScanScreen() {
 
         {showToast && (
           <div className="scanToast">
-            ✓ {results.length} medicines added successfully
+            <i className="ri-check-line"></i> {results.length} medicines added successfully
           </div>
         )}
       </div>

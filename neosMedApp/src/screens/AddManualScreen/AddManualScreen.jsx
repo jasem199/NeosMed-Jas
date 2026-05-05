@@ -119,7 +119,7 @@ export default function AddManualScreen() {
       {/* Header */}
       <div className="addManualHeader">
         <button className="addManualBackBtn" onClick={handleBack} aria-label="Go back" id="add-manual-back">
-          ←
+          <i className="ri-arrow-left-line"></i>
         </button>
         <span className="addManualTitle">
           {step <= 3 ? 'Add Medicine' : 'Looks Good?'}
@@ -339,7 +339,7 @@ export default function AddManualScreen() {
               <span className="reviewRowLabel">Name</span>
               <span className="reviewRowValue">
                 {form.name}
-                <button className="reviewEditBtn" onClick={() => setStep(1)} aria-label="Edit name">✏️</button>
+                <button className="reviewEditBtn" onClick={() => setStep(1)} aria-label="Edit name"><i className="ri-pencil-line"></i></button>
               </span>
             </div>
             <div className="reviewRow">
@@ -362,7 +362,7 @@ export default function AddManualScreen() {
               <span className="reviewRowLabel">Frequency</span>
               <span className="reviewRowValue">
                 {form.frequency}x per day
-                <button className="reviewEditBtn" onClick={() => setStep(2)} aria-label="Edit schedule">✏️</button>
+                <button className="reviewEditBtn" onClick={() => setStep(2)} aria-label="Edit schedule"><i className="ri-pencil-line"></i></button>
               </span>
             </div>
             <div className="reviewRow">
@@ -383,7 +383,7 @@ export default function AddManualScreen() {
               <span className="reviewRowLabel">Stock</span>
               <span className="reviewRowValue">
                 {form.stock || '—'} {form.unit ? form.unit.toLowerCase() : ''}
-                <button className="reviewEditBtn" onClick={() => setStep(3)} aria-label="Edit stock">✏️</button>
+                <button className="reviewEditBtn" onClick={() => setStep(3)} aria-label="Edit stock"><i className="ri-pencil-line"></i></button>
               </span>
             </div>
             <div className="reviewRow">
@@ -418,7 +418,7 @@ export default function AddManualScreen() {
       {/* Toast */}
       {showToast && (
         <div className="toast" id="success-toast">
-          ✓ Medicine added successfully
+          <i className="ri-check-line"></i> Medicine added successfully
         </div>
       )}
     </div>

@@ -2,12 +2,12 @@ import { useApp } from '../../context/AppContext';
 import './MedicineCard.css';
 
 const unitIcons = {
-  Pills: '💊',
-  Syrup: '🧴',
-  Drop: '💧',
-  Puff: '💨',
-  Injection: '💉',
-  Other: '📋',
+  Pills: <i className="ri-capsule-fill"></i>,
+  Syrup: <i className="ri-flask-fill"></i>,
+  Drop: <i className="ri-drop-fill"></i>,
+  Puff: <i className="ri-mist-fill"></i>,
+  Injection: <i className="ri-syringe-fill"></i>,
+  Other: <i className="ri-medicine-bottle-fill"></i>,
 };
 
 export default function MedicineCard({ medicine, time, onCardTap, disabled = false }) {
@@ -39,7 +39,7 @@ export default function MedicineCard({ medicine, time, onCardTap, disabled = fal
       aria-label={`${medicine.name} ${medicine.strength}`}
     >
       <div className={`medCardIcon ${unitClass}`}>
-        {unitIcons[medicine.unit] || '📋'}
+        {unitIcons[medicine.unit] || <i className="ri-medicine-bottle-fill"></i>}
       </div>
       <div className="medCardInfo">
         <div className="medCardName">{medicine.name} <span className="medCardStrength">| {medicine.strength}</span></div>
@@ -51,7 +51,7 @@ export default function MedicineCard({ medicine, time, onCardTap, disabled = fal
         aria-label={taken ? `Unmark ${medicine.name} as taken` : `Mark ${medicine.name} as taken`}
         disabled={isPastDate || (disabled && !taken)}
       >
-        {taken ? '✓' : ''}
+        {taken ? <i className="ri-check-line"></i> : ''}
       </button>
     </div>
   );

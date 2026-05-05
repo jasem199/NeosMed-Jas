@@ -2,11 +2,11 @@ import { useApp } from '../../context/AppContext';
 import './BottomNav.css';
 
 const tabs = [
-  { id: 'medication', icon: '💊', label: 'Medication' },
-  { id: 'family', icon: '👨‍👩‍👧', label: 'Family' },
-  { id: 'stock', icon: '📦', label: 'Stock' },
-  { id: 'reports', icon: '📊', label: 'Reports' },
-  { id: 'notifications', icon: '🔔', label: 'Alerts', badge: 3 },
+  { id: 'medication', icon: <i className="ri-capsule-line"></i>, label: 'Medication' },
+  { id: 'family', icon: <i className="ri-group-line"></i>, label: 'Family' },
+  { id: 'stock', icon: <i className="ri-box-3-line"></i>, label: 'Stock' },
+  { id: 'reports', icon: <i className="ri-bar-chart-box-line"></i>, label: 'Reports' },
+  { id: 'notifications', icon: <i className="ri-notification-3-line"></i>, label: 'Alerts', badge: 3 },
 ];
 
 export default function BottomNav() {

@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useApp } from '../../context/AppContext';
-import { TIME_CATEGORIES } from '../../data/mockData';
+
 import DatePicker from '../../components/DatePicker/DatePicker';
 import MedicineCard from '../../components/MedicineCard/MedicineCard';
 import BottomSheet from '../../components/BottomSheet/BottomSheet';
@@ -146,7 +146,7 @@ export default function HomeScreen() {
       {/* Low Stock Banner */}
       {lowStockMeds.length > 0 && !lowStockDismissed && (
         <div className="lowStockBanner" id="low-stock-banner">
-          <span className="lowStockIcon">⚠️</span>
+          <span className="lowStockIcon"><i className="ri-error-warning-fill"></i></span>
           <div className="lowStockInfo">
             <div className="lowStockTitle">{lowStockMeds[0].name} is running low</div>
             <div className="lowStockDetail">Only {lowStockMeds[0].stock} {lowStockMeds[0].unit.toLowerCase()} left</div>
@@ -161,7 +161,7 @@ export default function HomeScreen() {
       {/* Empty State */}
       {noMedicines && (
         <div className="emptyState" id="empty-state">
-          <div className="emptyStateIcon">💊</div>
+          <div className="emptyStateIcon"><i className="ri-capsule-line"></i></div>
           <div className="emptyStateTitle">No medicines added yet</div>
           <div className="emptyStateSubtext">Add your first medicine to start tracking</div>
           <button className="emptyStateCta" onClick={() => setAddSheetOpen(true)}>
@@ -173,7 +173,7 @@ export default function HomeScreen() {
       {/* All Done State */}
       {allDone && (
         <div className="allDoneState" id="all-done-state">
-          <div className="allDoneIcon">🎉</div>
+          <div className="allDoneIcon"><i className="ri-checkbox-circle-fill"></i></div>
           <div className="allDoneTitle">All done for today!</div>
           <div className="allDoneSubtext">Great job 💪</div>
         </div>
@@ -186,7 +186,7 @@ export default function HomeScreen() {
           <section className="timeCategorySection" key={timeStr} id={`section-${timeStr.replace(':','')}`}>
             <div className="timeCategoryHeader">
               <div className="timeCategoryLabel">
-                <span className="timeCategoryIcon">⏰</span>
+                <span className="timeCategoryIcon"><i className="ri-time-line"></i></span>
                 {format12Hour(timeStr)}
               </div>
               {isToday() && (
@@ -227,27 +227,27 @@ export default function HomeScreen() {
 
       {/* FAB */}
       <button className="fab" onClick={() => setAddSheetOpen(true)} aria-label="Add medicine" id="fab-add">
-        +
+        <i className="ri-add-line"></i>
       </button>
 
       {/* Add Medicine Bottom Sheet */}
       <BottomSheet isOpen={addSheetOpen} onClose={() => setAddSheetOpen(false)} title="Add Medicine">
         <div className="addOptionsList">
           <button className="addOptionItem" onClick={() => { setAddSheetOpen(false); setActiveScreen('addManual'); }} id="add-manually-option">
-            <div className="addOptionIcon">💊</div>
+            <div className="addOptionIcon"><i className="ri-capsule-line"></i></div>
             <div className="addOptionInfo">
               <div className="addOptionTitle">Add Manually</div>
               <div className="addOptionDesc">Enter medicine details step by step</div>
             </div>
-            <span className="addOptionArrow">›</span>
+            <span className="addOptionArrow"><i className="ri-arrow-right-s-line"></i></span>
           </button>
           <button className="addOptionItem" onClick={() => { setAddSheetOpen(false); setActiveScreen('scanPrescription'); }} id="scan-prescription-option">
-            <div className="addOptionIcon">📷</div>
+            <div className="addOptionIcon"><i className="ri-camera-lens-line"></i></div>
             <div className="addOptionInfo">
               <div className="addOptionTitle">Scan Prescription</div>
               <div className="addOptionDesc">Take a photo or choose from gallery</div>
             </div>
-            <span className="addOptionArrow">›</span>
+            <span className="addOptionArrow"><i className="ri-arrow-right-s-line"></i></span>
           </button>
         </div>
       </BottomSheet>
