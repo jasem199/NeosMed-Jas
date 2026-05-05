@@ -1,0 +1,46 @@
+.bottomSheetOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bottomSheetContainer {
+  width: 100%;
+  max-width: 600px;
+  background: var(--color-canvas);
+  border-radius: var(--rounded-lg) var(--rounded-lg) 0 0;
+  padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xxl);
+  animation: slideUp 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  max-height: 85dvh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.bottomSheetContainer.closing {
+  animation: slideDown 0.25s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.bottomSheetHandle {
+  width: 36px;
+  height: 4px;
+  background: var(--color-stone);
+  border-radius: var(--rounded-full);
+  margin: 0 auto var(--spacing-xl);
+  display: block;
+}
+
+.bottomSheetTitle {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-xl);
+}

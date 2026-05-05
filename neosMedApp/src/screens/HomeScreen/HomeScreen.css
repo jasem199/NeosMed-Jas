@@ -1,0 +1,445 @@
+.homeScreen {
+  padding-bottom: 160px;
+  min-height: 100dvh;
+}
+
+/* ── Progress Bar ── */
+.progressSection {
+  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+}
+
+.progressBar {
+  height: 6px;
+  background: var(--color-secondary-bg);
+  border-radius: var(--rounded-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), #6366f1);
+  border-radius: var(--rounded-full);
+  transition: width 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  animation: progressFill 0.8s ease-out;
+}
+
+.progressLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-mute);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.progressCount {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ── Low Stock Banner ── */
+.lowStockBanner {
+  margin: 0 var(--spacing-lg) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: #fff8f0;
+  border-radius: var(--rounded-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  border: 1px solid #ffe4cc;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.lowStockIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.lowStockInfo {
+  flex: 1;
+}
+
+.lowStockTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.lowStockDetail {
+  font-size: 12px;
+  color: var(--color-mute);
+  margin-top: 2px;
+}
+
+.lowStockDismiss {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: var(--rounded-full);
+  font-size: 14px;
+  color: var(--color-mute);
+  cursor: pointer;
+}
+
+/* ── Time Category Section ── */
+.timeCategorySection {
+  margin-bottom: var(--spacing-xl);
+}
+
+.timeCategoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-lg) var(--spacing-sm);
+}
+
+.timeCategoryLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.timeCategoryIcon {
+  font-size: 18px;
+}
+
+.checkAllBtn {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: var(--rounded-full);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.checkAllBtn:active {
+  background: var(--color-surface-card);
+  transform: scale(0.95);
+}
+
+.timeCategoryCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 var(--spacing-lg);
+}
+
+/* ── Taken / Missed Sections ── */
+.statusSection {
+  margin-top: var(--spacing-xl);
+  padding: 0 var(--spacing-lg);
+}
+
+.statusSectionHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-hairline-soft);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.statusDot.taken { background: var(--color-success-deep); }
+.statusDot.missed { background: var(--color-error-deep); }
+
+.statusSectionTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── FAB ── */
+.fab {
+  position: fixed;
+  bottom: 80px;
+  right: calc(50% - 280px);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--rounded-full);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 28px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(57, 73, 254, 0.35);
+  cursor: pointer;
+  z-index: 80;
+  transition: all 0.2s ease;
+}
+
+.fab:active {
+  transform: scale(0.9);
+  box-shadow: 0 2px 8px rgba(57, 73, 254, 0.4);
+}
+
+@media (max-width: 600px) {
+  .fab {
+    right: 20px;
+  }
+}
+
+/* ── Empty State ── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-section) var(--spacing-xl);
+  text-align: center;
+}
+
+.emptyStateIcon {
+  font-size: 64px;
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.6;
+}
+
+.emptyStateTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-sm);
+}
+
+.emptyStateSubtext {
+  font-size: 14px;
+  color: var(--color-mute);
+  margin-bottom: var(--spacing-xl);
+}
+
+.emptyStateCta {
+  padding: 12px 24px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.emptyStateCta:active {
+  background: var(--color-primary-pressed);
+  transform: scale(0.96);
+}
+
+/* ── All Done State ── */
+.allDoneState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  text-align: center;
+}
+
+.allDoneIcon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.allDoneTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-success-deep);
+}
+
+.allDoneSubtext {
+  font-size: 14px;
+  color: var(--color-mute);
+  margin-top: var(--spacing-xs);
+}
+
+/* ── Medicine Detail Sheet ── */
+.medDetailHeader {
+  margin-bottom: var(--spacing-xl);
+}
+
+.medDetailName {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.medDetailDosage {
+  font-size: 14px;
+  color: var(--color-mute);
+  margin-top: 4px;
+}
+
+.medDetailActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.medDetailPrimaryBtn {
+  width: 100%;
+  padding: 14px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.medDetailPrimaryBtn:active {
+  background: var(--color-primary-pressed);
+  transform: scale(0.98);
+}
+
+.snoozeChips {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.snoozeLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-sm);
+}
+
+.snoozeChip {
+  flex: 1;
+  padding: 10px;
+  background: var(--color-surface-card);
+  border-radius: var(--rounded-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.snoozeChip:active {
+  background: var(--color-secondary-bg);
+  transform: scale(0.95);
+}
+
+.skipBtn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: var(--color-error);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+  margin-top: var(--spacing-sm);
+  transition: all 0.15s ease;
+}
+
+.skipBtn:active {
+  background: #fff0f0;
+}
+
+.viewDetailsLink {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-mute);
+  padding: var(--spacing-lg) 0 0;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* ── Past Date Notice ── */
+.pastDateNotice {
+  margin: 0 var(--spacing-lg) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--color-surface-card);
+  border-radius: var(--rounded-full);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-mute);
+  text-align: center;
+}
+
+/* ── Add Medicine Sheet Options ── */
+.addOptionsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.addOptionItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--color-surface-card);
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.addOptionItem:active {
+  background: var(--color-secondary-bg);
+  transform: scale(0.98);
+}
+
+.addOptionIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--rounded-md);
+  background: var(--color-canvas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.addOptionInfo {
+  flex: 1;
+}
+
+.addOptionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.addOptionDesc {
+  font-size: 13px;
+  color: var(--color-mute);
+  margin-top: 2px;
+}
+
+.addOptionArrow {
+  color: var(--color-stone);
+  font-size: 18px;
+}

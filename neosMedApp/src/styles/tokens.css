@@ -1,0 +1,64 @@
+/* ============================================================
+   NeosMed Design Tokens
+   All values derived from NeosMed_DESIGN.md
+   ============================================================ */
+
+:root {
+  /* ── Brand & Accent ── */
+  --color-primary: #3949FE;
+  --color-primary-pressed: #2a38e0;
+  --color-on-primary: #ffffff;
+
+  /* ── Surfaces ── */
+  --color-canvas: #ffffff;
+  --color-surface-soft: #fbfbf9;
+  --color-surface-card: #f6f6f3;
+  --color-secondary-bg: #e5e5e0;
+  --color-secondary-pressed: #c8c8c1;
+  --color-surface-dark: #262622;
+  --color-hairline: #dadad3;
+  --color-hairline-soft: #e5e5e0;
+
+  /* ── Text ── */
+  --color-ink: #000000;
+  --color-ink-soft: #211922;
+  --color-body: #33332e;
+  --color-charcoal: #262622;
+  --color-mute: #62625b;
+  --color-ash: #91918c;
+  --color-stone: #c8c8c1;
+  --color-on-dark: #ffffff;
+
+  /* ── Semantic ── */
+  --color-error: #9e0a0a;
+  --color-error-deep: #cc001f;
+  --color-success-deep: #103c25;
+  --color-success-pale: #c7f0da;
+  --color-focus-outer: #3949FE;
+  --color-focus-inner: #ffffff;
+
+  /* ── Editorial Accents ── */
+  --color-accent-pressed-blue: #2a38e0;
+  --color-accent-purple: #7e238b;
+  --color-accent-purple-deep: #6845ab;
+
+  /* ── Typography ── */
+  --font-family: 'Public Sans', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* ── Spacing ── */
+  --spacing-xxs: 4px;
+  --spacing-xs: 6px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  --spacing-section: 64px;
+
+  /* ── Border Radius ── */
+  --rounded-none: 0px;
+  --rounded-sm: 8px;
+  --rounded-md: 16px;
+  --rounded-lg: 32px;
+  --rounded-full: 9999px;
+}

@@ -1,0 +1,107 @@
+.medicineCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+  background: transparent;
+  border-bottom: 1px solid var(--color-hairline-soft);
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.medicineCard:last-child {
+  border-bottom: none;
+}
+
+.medicineCard:active {
+  transform: scale(0.98);
+}
+
+.medicineCard.taken {
+  opacity: 0.5;
+}
+
+.medicineCard.taken .medCardName {
+  text-decoration: line-through;
+  text-decoration-color: var(--color-mute);
+}
+
+.medicineCard.missed {
+  border-left: 3px solid var(--color-error-deep);
+}
+
+.medicineCard.skipped {
+  opacity: 0.4;
+}
+
+.medCardIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--rounded-md);
+  background: var(--color-surface-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.medCardInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.medCardName {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.3;
+  transition: text-decoration 0.3s ease;
+}
+
+.medCardStrength {
+  font-weight: 400;
+  color: var(--color-mute);
+}
+
+.medCardAdviceTag {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-mute);
+}
+
+.medCardCheckBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--rounded-full);
+  background: var(--color-canvas);
+  border: 2px solid var(--color-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+  font-size: 20px;
+  color: transparent;
+}
+
+.medCardCheckBtn:active {
+  transform: scale(0.88);
+}
+
+.medCardCheckBtn.checked {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  animation: checkPop 0.35s ease;
+}
+
+.medCardCheckBtn.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
