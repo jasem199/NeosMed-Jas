@@ -20,13 +20,6 @@ export default function MedicineCard({ medicine, time, onCardTap, disabled = fal
   // Local state to hold the "taken" visual during animation
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Sync animation state with actual taken state when it updates globally
-  useEffect(() => {
-    if (taken) {
-      setIsAnimating(false);
-    }
-  }, [taken]);
-
   const handleCheck = (e) => {
     e.stopPropagation();
     if (isPastDate) return;
@@ -39,9 +32,11 @@ export default function MedicineCard({ medicine, time, onCardTap, disabled = fal
       // Start local animation
       setIsAnimating(true);
       
-      // Delay the global state update so the transition has time to play
+      // Delay the global state update
       setTimeout(() => {
         markTaken(medicine.id, time);
+        // Reset animation state after the global state has likely propagated
+        setTimeout(() => setIsAnimating(false), 600);
       }, 500); 
     }
   };

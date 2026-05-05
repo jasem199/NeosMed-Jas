@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { MOCK_SCAN_RESULTS } from '../../data/mockData';
 import './ScanScreen.css';

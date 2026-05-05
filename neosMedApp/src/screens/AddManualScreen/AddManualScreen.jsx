@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { UNITS, INTAKE_ADVICE, FREQUENCIES, DURATIONS } from '../../data/mockData';
 import './AddManualScreen.css';
@@ -116,28 +116,31 @@ export default function AddManualScreen() {
 
   return (
     <div className="addManualScreen" id="add-manual-screen">
-      {/* Header */}
-      <div className="addManualHeader">
-        <button className="addManualBackBtn" onClick={handleBack} aria-label="Go back" id="add-manual-back">
-          <i className="ri-arrow-left-line"></i>
-        </button>
-        <span className="addManualTitle">
-          {step <= 3 ? 'Add Medicine' : 'Looks Good?'}
-        </span>
-      </div>
-
-      {/* Step Indicator */}
-      {step <= 3 && (
-        <div className="stepIndicator" id="step-indicator">
-          {[1, 2, 3].map(s => (
-            <span
-              key={s}
-              className={`stepDot${s === step ? ' active' : ''}${s < step ? ' completed' : ''}`}
-            />
-          ))}
-          <span className="stepLabel">Step {step} of 3 — {stepLabels[step - 1]}</span>
+      {/* Top Sticky Section (Header + Indicator) */}
+      <div className="addManualTopSection">
+        {/* Header */}
+        <div className="addManualHeader">
+          <button className="addManualBackBtn" onClick={handleBack} aria-label="Go back" id="add-manual-back">
+            <i className="ri-arrow-left-line"></i>
+          </button>
+          <span className="addManualTitle">
+            {step <= 3 ? 'Add Medicine' : 'Looks Good?'}
+          </span>
         </div>
-      )}
+
+        {/* Step Indicator */}
+        {step <= 3 && (
+          <div className="stepIndicator" id="step-indicator">
+            {[1, 2, 3].map(s => (
+              <span
+                key={s}
+                className={`stepDot${s === step ? ' active' : ''}${s < step ? ' completed' : ''}`}
+              />
+            ))}
+            <span className="stepLabel">Step {step} of 3 — {stepLabels[step - 1]}</span>
+          </div>
+        )}
+      </div>
 
       {/* Step 1: Medicine Details */}
       {step === 1 && (

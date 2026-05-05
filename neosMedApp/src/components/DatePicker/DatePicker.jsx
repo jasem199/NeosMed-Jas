@@ -19,7 +19,6 @@ export default function DatePicker() {
   } = useApp();
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [calendarMonth, setCalendarMonth] = useState(new Date(selectedDate));
-  const [hasScrolled, setHasScrolled] = useState(false);
   const stripRef = useRef(null);
   const selectedRef = useRef(null);
 

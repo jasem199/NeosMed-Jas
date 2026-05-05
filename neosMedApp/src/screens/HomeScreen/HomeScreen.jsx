@@ -20,7 +20,6 @@ function format12Hour(time24) {
 export default function HomeScreen() {
   const {
     medicines,
-    getMedicinesByCategory,
     getTakenCount,
     getTotalScheduled,
     getLowStockMedicines,
@@ -30,7 +29,6 @@ export default function HomeScreen() {
     markSkipped,
     isToday,
     isPast,
-    isFuture,
     setActiveScreen,
   } = useApp();
 
@@ -44,6 +42,7 @@ export default function HomeScreen() {
   const totalScheduled = getTotalScheduled();
   const lowStockMeds = getLowStockMedicines();
   const progressPercent = totalScheduled > 0 ? Math.round((takenCount / totalScheduled) * 100) : 0;
+  // console.log('Progress:', progressPercent + '%');
   const allDone = takenCount === totalScheduled && totalScheduled > 0 && isToday();
   const noMedicines = medicines.length === 0;
 
