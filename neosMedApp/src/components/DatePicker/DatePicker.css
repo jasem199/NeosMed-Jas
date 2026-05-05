@@ -1,6 +1,6 @@
 .datePickerSection {
   padding: var(--spacing-lg) 0 var(--spacing-md);
-  background: var(--color-canvas);
+  background: var(--color-surface);
 }
 
 /* ── Date Strip ── */
@@ -254,4 +254,40 @@
 .calendarDay.otherMonth {
   color: var(--color-stone);
   opacity: 0.5;
+}
+
+/* ── Progress Bar (Moved from HomeScreen) ── */
+.progressSection {
+  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+}
+
+.progressBar {
+  height: 6px;
+  background: var(--color-secondary-bg);
+  border-radius: var(--rounded-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), #6366f1);
+  border-radius: var(--rounded-full);
+  transition: width 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  animation: progressFill 0.8s ease-out;
+}
+
+.progressLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-mute);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.progressCount {
+  font-weight: 700;
+  color: var(--color-primary);
 }

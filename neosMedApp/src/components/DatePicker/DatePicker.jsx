@@ -13,7 +13,10 @@ function getSaturdayBasedDay(date) {
 }
 
 export default function DatePicker() {
-  const { selectedDate, setSelectedDate, isToday, isFuture } = useApp();
+  const { 
+    selectedDate, setSelectedDate, isToday, 
+    getTakenCount, getTotalScheduled, medicines 
+  } = useApp();
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [calendarMonth, setCalendarMonth] = useState(new Date(selectedDate));
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -167,6 +170,18 @@ export default function DatePicker() {
           </button>
         )}
       </div>
+
+      {/* Progress Bar (Moved from HomeScreen) */}
+      {medicines.length > 0 && (
+        <div className="progressSection">
+          <div className="progressBar">
+            <div className="progressFill" style={{ width: `${Math.round((getTakenCount() / getTotalScheduled()) * 100) || 0}%` }} />
+          </div>
+          <div className="progressLabel">
+            <span className="progressCount">{getTakenCount()}</span> of {getTotalScheduled()} medicines taken today
+          </div>
+        </div>
+      )}
 
       {/* Calendar Bottom Sheet */}
       <BottomSheet isOpen={calendarOpen} onClose={() => setCalendarOpen(false)} title="">

@@ -131,17 +131,7 @@ export default function HomeScreen() {
     <div className="homeScreen" id="home-screen">
       <DatePicker />
 
-      {/* Progress Bar */}
-      {!noMedicines && (
-        <div className="progressSection">
-          <div className="progressBar">
-            <div className="progressFill" style={{ width: `${progressPercent}%` }} />
-          </div>
-          <div className="progressLabel">
-            <span className="progressCount">{takenCount}</span> of {totalScheduled} medicines taken today
-          </div>
-        </div>
-      )}
+
 
       {/* Low Stock Banner */}
       {lowStockMeds.length > 0 && !lowStockDismissed && (
@@ -183,7 +173,7 @@ export default function HomeScreen() {
       {!noMedicines && !allDone && activeTimeKeys.map(timeStr => {
         const meds = activeByTime[timeStr];
         return (
-          <section className="timeCategorySection" key={timeStr} id={`section-${timeStr.replace(':','')}`}>
+          <section className="timeCard" key={timeStr} id={`section-${timeStr.replace(':','')}`}>
             <div className="timeCategoryHeader">
               <div className="timeCategoryLabel">
                 <span className="timeCategoryIcon"><i className="ri-time-line"></i></span>
@@ -195,7 +185,7 @@ export default function HomeScreen() {
                 </button>
               )}
             </div>
-            <div className="timeCategoryCards">
+            <div className="timeCardList">
               {meds.map(({ medicine }) => (
                 <MedicineCard
                   key={`${medicine.id}-${timeStr}`}
@@ -212,12 +202,12 @@ export default function HomeScreen() {
 
       {/* Taken Section */}
       {takenMeds.length > 0 && (
-        <div className="statusSection" id="taken-section">
+        <div className="timeCard takenSection" id="taken-section">
           <div className="statusSectionHeader">
             <span className="statusDot taken" />
             <span className="statusSectionTitle">Taken ({takenMeds.length})</span>
           </div>
-          <div className="statusCards">
+          <div className="timeCardList">
             {takenMeds.map(({ medicine, time }, idx) => (
               <MedicineCard key={`${medicine.id}-${time}-${idx}`} medicine={medicine} time={time} disabled />
             ))}

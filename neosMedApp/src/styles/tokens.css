@@ -10,7 +10,8 @@
   --color-on-primary: #ffffff;
 
   /* ── Surfaces ── */
-  --color-canvas: #ffffff;
+  --color-canvas: #F7F7F8;
+  --color-surface: #ffffff;
   --color-surface-soft: #fbfbf9;
   --color-surface-card: #f6f6f3;
   --color-secondary-bg: #e5e5e0;
