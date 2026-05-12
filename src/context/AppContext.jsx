@@ -1,10 +1,12 @@
 import { createContext, useContext, useState, useCallback } from 'react';
 import { MOCK_MEDICINES } from '../data/mockData';
+import { MOCK_FAMILY_MEMBERS } from '../data/mockFamilyData';
 
 const AppContext = createContext(null);
 
 export function AppProvider({ children }) {
   const [medicines, setMedicines] = useState(MOCK_MEDICINES);
+  const [familyMembers, setFamilyMembers] = useState(MOCK_FAMILY_MEMBERS);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [takenMap, setTakenMap] = useState({});
   // takenMap shape: { 'YYYY-MM-DD': { 'med-id': { taken: bool, skipped: bool, snoozed: bool, time: string } } }
@@ -121,6 +123,23 @@ export function AppProvider({ children }) {
     return medicines.filter(m => m.stock <= m.lowStockThreshold);
   }, [medicines]);
 
+  const addFamilyMember = useCallback((member) => {
+    setFamilyMembers(prev => [...prev, { ...member, id: `fam-${Date.now()}` }]);
+  }, []);
+
+  const removeFamilyMember = useCallback((id) => {
+    setFamilyMembers(prev => prev.filter(m => m.id !== id));
+  }, []);
+
+  const updateFamilyMemberPermissions = useCallback((id, permissions, notifications) => {
+    setFamilyMembers(prev => prev.map(m => {
+      if (m.id === id) {
+        return { ...m, permissions: { ...m.permissions, ...permissions }, notifications: { ...m.notifications, ...notifications } };
+      }
+      return m;
+    }));
+  }, []);
+
   const value = {
     medicines,
     selectedDate,
@@ -147,6 +166,10 @@ export function AppProvider({ children }) {
     getTakenCount,
     getTotalScheduled,
     getLowStockMedicines,
+    familyMembers,
+    addFamilyMember,
+    removeFamilyMember,
+    updateFamilyMemberPermissions,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

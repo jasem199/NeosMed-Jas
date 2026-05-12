@@ -4,9 +4,10 @@ import BottomNav from './components/BottomNav/BottomNav';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import AddManualScreen from './screens/AddManualScreen/AddManualScreen';
 import ScanScreen from './screens/ScanScreen/ScanScreen';
+import FamilyScreen from './screens/FamilyScreen/FamilyScreen';
 
 function AppContent() {
-  const { activeScreen } = useApp();
+  const { activeScreen, activeTab } = useApp();
 
   if (activeScreen === 'addManual') {
     return <AddManualScreen />;
@@ -19,7 +20,7 @@ function AppContent() {
   return (
     <>
       <TopBar />
-      <HomeScreen />
+      {activeTab === 'family' ? <FamilyScreen /> : <HomeScreen />}
       <BottomNav />
     </>
   );
@@ -27,8 +28,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <AppProvider>
-      <AppContent />
-    </AppProvider>
+    <div className="appWrapper">
+      <AppProvider>
+        <AppContent />
+      </AppProvider>
+    </div>
   );
 }

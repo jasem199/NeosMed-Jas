@@ -1,0 +1,340 @@
+.sheetContent {
+  padding: 0;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: var(--color-mute);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: 0 var(--spacing-lg) var(--spacing-xl);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.formLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.formInput {
+  padding: 14px;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--rounded-md);
+  font-size: 15px;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.formInput:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface);
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.chip {
+  padding: 8px 16px;
+  border-radius: var(--rounded-full);
+  border: 1px solid var(--color-hairline);
+  background: var(--color-surface);
+  color: var(--color-mute);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chip.selected {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.helperText {
+  font-size: 13px;
+  color: var(--color-mute);
+  margin-top: 4px;
+}
+
+.helperText.center {
+  text-align: center;
+}
+
+.helperText.danger {
+  color: var(--color-error-deep);
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-ink);
+}
+
+.toggleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  cursor: pointer;
+}
+
+.toggleRow.locked {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.toggleInfo {
+  flex: 1;
+  padding-right: var(--spacing-lg);
+}
+
+.toggleTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 2px;
+}
+
+.toggleDesc {
+  font-size: 13px;
+  color: var(--color-mute);
+}
+
+.toggleSwitch {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: var(--color-hairline);
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.toggleSwitch.on {
+  background-color: var(--color-primary);
+}
+
+.toggleSwitch.disabled {
+  background-color: var(--color-hairline-soft);
+}
+
+.toggleKnob {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.toggleSwitch.on .toggleKnob {
+  transform: translateX(20px);
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-hairline-soft);
+  margin: var(--spacing-md) 0;
+}
+
+.summaryCard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-hairline-soft);
+  border-radius: var(--rounded-md);
+  padding: var(--spacing-lg);
+}
+
+.summaryHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.summaryAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--rounded-full);
+  background-color: var(--color-surface-card);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.summaryName {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-ink);
+}
+
+.summaryRel {
+  font-size: 13px;
+  color: var(--color-mute);
+  margin-top: 2px;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.inviteIconLarge {
+  font-size: 48px;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.inviteTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-xl);
+}
+
+.inviteBox {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline-soft);
+  border-radius: var(--rounded-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.inviteBox.large {
+  padding: var(--spacing-xl);
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.inviteCodeText {
+  font-family: monospace;
+  font-size: 16px;
+  color: var(--color-ink);
+}
+
+.inviteCodeText.bold {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 20px;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+}
+
+.shareBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.codeInput {
+  width: 100%;
+  padding: var(--spacing-xl);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  text-align: center;
+  border: 2px solid var(--color-hairline);
+  border-radius: var(--rounded-md);
+  margin-bottom: var(--spacing-xl);
+  text-transform: uppercase;
+  background: var(--color-canvas);
+}
+
+.codeInput:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  background: var(--color-surface);
+}
+
+/* ── Add Member Sheet Options ── */
+.addOptionItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--color-surface-card);
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+  text-align: left;
+  border: none;
+  margin-bottom: var(--spacing-sm);
+}
+
+.addOptionItem:active {
+  background: var(--color-secondary-bg);
+  transform: scale(0.98);
+}
+
+.addOptionIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--rounded-md);
+  background: var(--color-canvas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.addOptionInfo {
+  flex: 1;
+}
+
+.addOptionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.addOptionDesc {
+  font-size: 13px;
+  color: var(--color-mute);
+  margin-top: 2px;
+}
+
+.addOptionArrow {
+  color: var(--color-stone);
+  font-size: 18px;
+}
