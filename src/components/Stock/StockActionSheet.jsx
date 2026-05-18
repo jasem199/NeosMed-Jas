@@ -19,7 +19,7 @@ export default function StockActionSheet({ isOpen, onClose, medicine, onRefill, 
           {medicine.status === 'active' && (
             <button className="actionSheet-option" onClick={() => { onRefill(medicine); onClose(); }}>
               <div className="actionSheet-optionIconBox"><i className="ri-add-box-line"></i></div>
-              <div className="actionSheet-optionText">Refill Stock</div>
+              <div className="actionSheet-optionText">Refill Medicine</div>
             </button>
           )}
 

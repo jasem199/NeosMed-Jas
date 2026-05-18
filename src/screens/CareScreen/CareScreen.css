@@ -1,0 +1,195 @@
+.careScreen {
+  padding-bottom: 120px;
+  background-color: var(--color-canvas);
+  min-height: 100vh;
+}
+
+.careHeader {
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-md);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-hairline-soft);
+}
+
+.careTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.careSubtitle {
+  font-size: 14px;
+  color: var(--color-mute);
+  margin: var(--spacing-xxs) 0 0 0;
+  font-weight: 500;
+}
+
+.careContent {
+  padding: var(--spacing-lg);
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-section) var(--spacing-xl);
+}
+
+.emptyStateIcon {
+  font-size: 64px;
+  color: var(--color-mute);
+  margin-bottom: var(--spacing-md);
+  opacity: 0.6;
+}
+
+.emptyStateTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-xs);
+}
+
+.emptyStateSubtext {
+  font-size: 14px;
+  color: var(--color-mute);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.4;
+}
+
+.emptyStateActions {
+  width: 100%;
+}
+
+.primaryCta {
+  padding: 14px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border: none;
+  border-radius: var(--rounded-md);
+  font-size: 15px;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.primaryCta:active {
+  background-color: var(--color-primary-pressed);
+  transform: scale(0.98);
+}
+
+/* Care Member Card (Design-System-Compliant: NO box-shadow) */
+.careDashboard-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.careDashboard-meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.careMemberList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.careMemberCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-hairline-soft);
+  border-radius: var(--rounded-lg);
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.careMemberCard:active {
+  transform: scale(0.98);
+  border-color: var(--color-hairline);
+}
+
+.careMemberAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--rounded-full);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent-purple-pale) 100%);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.careMemberInfo {
+  flex: 1;
+}
+
+.careMemberName {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0 0 2px 0;
+}
+
+.careMemberRelation {
+  font-size: 13px;
+  color: var(--color-mute);
+  margin: 0;
+  font-weight: 500;
+}
+
+.careMemberAction {
+  display: flex;
+  align-items: center;
+}
+
+.careViewBtn {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.careDashboard-footer {
+  margin-top: var(--spacing-lg);
+}
+
+.addMemberBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.addMemberBtn.outline.purple {
+  background-color: transparent;
+  border: 1.5px dashed var(--color-primary);
+  color: var(--color-primary);
+}
+
+.addMemberBtn.outline.purple:active {
+  background-color: rgba(57, 73, 254, 0.05);
+  transform: scale(0.98);
+}

@@ -59,7 +59,7 @@ export function AppProvider({ children }) {
   const [takenMap, setTakenMap] = useState(generateMockTakenMap());
   // takenMap shape: { 'YYYY-MM-DD': { 'med-id': { taken: bool, skipped: bool, snoozed: bool, time: string } } }
   const [activeScreen, setActiveScreen] = useState('home'); // home | addManual | scanPrescription | scanReview | scanConfirm
-  const [activeTab, setActiveTab] = useState('medication');
+  const [activeTab, setActiveTab] = useState('home');
   const [addStep, setAddStep] = useState(1);
 
   const getDateKey = useCallback((date) => {

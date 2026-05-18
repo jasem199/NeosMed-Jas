@@ -4,9 +4,11 @@ import BottomNav from './components/BottomNav/BottomNav';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import AddManualScreen from './screens/AddManualScreen/AddManualScreen';
 import ScanScreen from './screens/ScanScreen/ScanScreen';
+import CareScreen from './screens/CareScreen/CareScreen';
 import FamilyScreen from './screens/FamilyScreen/FamilyScreen';
 import StockScreen from './screens/StockScreen/StockScreen';
 import ReportsScreen from './screens/ReportsScreen/ReportsScreen';
+import AlertsScreen from './screens/AlertsScreen/AlertsScreen';
 
 function AppContent() {
   const { activeScreen, activeTab } = useApp();
@@ -22,9 +24,11 @@ function AppContent() {
   return (
     <>
       <TopBar />
-      {activeTab === 'family' ? <FamilyScreen /> 
-        : activeTab === 'stock' ? <StockScreen /> 
+      {activeTab === 'care' ? <CareScreen />
+        : activeTab === 'family' ? <FamilyScreen /> 
+        : activeTab === 'medicine' ? <StockScreen /> 
         : activeTab === 'reports' ? <ReportsScreen /> 
+        : activeTab === 'notifications' ? <AlertsScreen />
         : <HomeScreen />}
       <BottomNav />
     </>

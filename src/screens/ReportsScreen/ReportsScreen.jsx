@@ -87,7 +87,7 @@ export default function ReportsScreen() {
     <div className="reportsScreen">
       <div className="reportsScreen-header">
         <h1 className="reportsScreen-title">My Reports</h1>
-        <p className="reportsScreen-subtitle">Your medication habits this week</p>
+        <p className="reportsScreen-subtitle">Your medicine habits this week</p>
       </div>
 
       <div className="reportsScreen-content">

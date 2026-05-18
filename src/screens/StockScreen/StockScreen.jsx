@@ -25,7 +25,7 @@ export default function StockScreen() {
   const [medToDelete, setMedToDelete] = useState(null);
 
   const filteredMedicines = useMemo(() => {
-    return medicines.filter(med => {
+    const list = medicines.filter(med => {
       // 1. Filter by status
       const medStatus = med.status || 'active'; // fallback for mock data
       if (medStatus !== activeTab) return false;
@@ -36,6 +36,20 @@ export default function StockScreen() {
       }
       
       return true;
+    });
+
+    // Sort: Low stock always on top, ordered by remaining days (least days remaining first)
+    return [...list].sort((a, b) => {
+      const isLowA = a.stock <= a.lowStockThreshold;
+      const isLowB = b.stock <= b.lowStockThreshold;
+
+      if (isLowA && !isLowB) return -1;
+      if (!isLowA && isLowB) return 1;
+
+      const daysA = a.stock && a.frequency ? Math.floor(a.stock / a.frequency) : 999999;
+      const daysB = b.stock && b.frequency ? Math.floor(b.stock / b.frequency) : 999999;
+
+      return daysA - daysB;
     });
   }, [medicines, activeTab, searchQuery]);
 
@@ -78,8 +92,21 @@ export default function StockScreen() {
   return (
     <div className="stockScreen">
       <div className="stockScreen-header">
-        <h1 className="stockScreen-title">Stock Management</h1>
-        
+        <div className="stockScreen-tabs">
+          <button 
+            className={`stockScreen-tab ${activeTab === 'active' ? 'active' : ''}`}
+            onClick={() => setActiveTab('active')}
+          >
+            Current
+          </button>
+          <button 
+            className={`stockScreen-tab ${activeTab === 'past' ? 'active' : ''}`}
+            onClick={() => setActiveTab('past')}
+          >
+            Archived
+          </button>
+        </div>
+
         <div className="stockScreen-searchBox">
           <i className="ri-search-line stockScreen-searchIcon"></i>
           <input 
@@ -94,21 +121,6 @@ export default function StockScreen() {
               <i className="ri-close-circle-fill"></i>
             </button>
           )}
-        </div>
-        
-        <div className="stockScreen-tabs">
-          <button 
-            className={`stockScreen-tab ${activeTab === 'active' ? 'active' : ''}`}
-            onClick={() => setActiveTab('active')}
-          >
-            Active Stock
-          </button>
-          <button 
-            className={`stockScreen-tab ${activeTab === 'past' ? 'active' : ''}`}
-            onClick={() => setActiveTab('past')}
-          >
-            Past Medicines
-          </button>
         </div>
       </div>
 

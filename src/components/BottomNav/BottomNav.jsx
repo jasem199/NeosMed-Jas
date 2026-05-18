@@ -2,11 +2,11 @@ import { useApp } from '../../context/AppContext';
 import './BottomNav.css';
 
 const tabs = [
-  { id: 'medication', icon: <i className="ri-capsule-line"></i>, label: 'Medication' },
-  { id: 'family', icon: <i className="ri-group-line"></i>, label: 'Family' },
-  { id: 'stock', icon: <i className="ri-box-3-line"></i>, label: 'Stock' },
-  { id: 'reports', icon: <i className="ri-bar-chart-box-line"></i>, label: 'Reports' },
-  { id: 'notifications', icon: <i className="ri-notification-3-line"></i>, label: 'Alerts', badge: 3 },
+  { id: 'home', lineIcon: 'ri-home-5-line', fillIcon: 'ri-home-5-fill', label: 'Home' },
+  { id: 'care', lineIcon: 'ri-heart-line', fillIcon: 'ri-heart-fill', label: 'Care' },
+  { id: 'family', lineIcon: 'ri-group-line', fillIcon: 'ri-group-fill', label: 'Family' },
+  { id: 'medicine', lineIcon: 'ri-medicine-bottle-line', fillIcon: 'ri-medicine-bottle-fill', label: 'Medicine' },
+  { id: 'reports', lineIcon: 'ri-bar-chart-box-line', fillIcon: 'ri-bar-chart-box-fill', label: 'Reports' },
 ];
 
 export default function BottomNav() {
@@ -14,20 +14,27 @@ export default function BottomNav() {
 
   return (
     <nav className="bottomNav" id="bottom-nav" aria-label="Main navigation">
-      {tabs.map((tab) => (
-        <button
-          key={tab.id}
-          id={`nav-${tab.id}`}
-          className={`bottomNavItem${activeTab === tab.id ? ' active' : ''}`}
-          onClick={() => setActiveTab(tab.id)}
-          aria-label={tab.label}
-          aria-current={activeTab === tab.id ? 'page' : undefined}
-        >
-          <span className="bottomNavIcon">{tab.icon}</span>
-          <span className="bottomNavLabel">{tab.label}</span>
-          {tab.badge && <span className="bottomNavBadge">{tab.badge}</span>}
-        </button>
-      ))}
+      {tabs.map((tab) => {
+        const isActive = activeTab === tab.id;
+        const iconClass = isActive ? tab.fillIcon : tab.lineIcon;
+        
+        return (
+          <button
+            key={tab.id}
+            id={`nav-${tab.id}`}
+            className={`bottomNavItem${isActive ? ' active' : ''}`}
+            onClick={() => setActiveTab(tab.id)}
+            aria-label={tab.label}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            <span className="bottomNavIcon">
+              <i className={iconClass}></i>
+            </span>
+            <span className="bottomNavLabel">{tab.label}</span>
+            {tab.badge && <span className="bottomNavBadge">{tab.badge}</span>}
+          </button>
+        );
+      })}
     </nav>
   );
 }
