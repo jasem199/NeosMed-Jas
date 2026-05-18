@@ -1,0 +1,122 @@
+.actionSheet-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.actionSheet-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  border-radius: var(--rounded-lg) var(--rounded-lg) 0 0;
+  z-index: 1001;
+  padding: var(--spacing-xl);
+  padding-bottom: calc(var(--spacing-xl) + env(safe-area-inset-bottom, 20px));
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.actionSheet-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+}
+
+.actionSheet-dragHandle {
+  width: 40px;
+  height: 4px;
+  background-color: var(--color-stone);
+  border-radius: var(--rounded-full);
+  margin-bottom: var(--spacing-md);
+}
+
+.actionSheet-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+  align-self: flex-start;
+}
+
+.actionSheet-closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-hairline);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--color-mute);
+  cursor: pointer;
+}
+
+.actionSheet-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.actionSheet-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: none;
+  border: none;
+  padding: var(--spacing-md);
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+  transition: background-color 0.15s;
+  width: 100%;
+  text-align: left;
+}
+
+.actionSheet-option:active {
+  background-color: var(--color-canvas);
+}
+
+.actionSheet-optionIconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rounded-sm);
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.actionSheet-optionText {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.actionSheet-option.danger .actionSheet-optionIconBox {
+  background-color: rgba(204, 0, 31, 0.1);
+  color: var(--color-error-deep);
+}
+
+.actionSheet-option.danger .actionSheet-optionText {
+  color: var(--color-error-deep);
+}
+
+.actionSheet-divider {
+  height: 1px;
+  background-color: var(--color-hairline);
+  margin: var(--spacing-sm) 0;
+}

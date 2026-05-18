@@ -5,6 +5,8 @@ import HomeScreen from './screens/HomeScreen/HomeScreen';
 import AddManualScreen from './screens/AddManualScreen/AddManualScreen';
 import ScanScreen from './screens/ScanScreen/ScanScreen';
 import FamilyScreen from './screens/FamilyScreen/FamilyScreen';
+import StockScreen from './screens/StockScreen/StockScreen';
+import ReportsScreen from './screens/ReportsScreen/ReportsScreen';
 
 function AppContent() {
   const { activeScreen, activeTab } = useApp();
@@ -20,7 +22,10 @@ function AppContent() {
   return (
     <>
       <TopBar />
-      {activeTab === 'family' ? <FamilyScreen /> : <HomeScreen />}
+      {activeTab === 'family' ? <FamilyScreen /> 
+        : activeTab === 'stock' ? <StockScreen /> 
+        : activeTab === 'reports' ? <ReportsScreen /> 
+        : <HomeScreen />}
       <BottomNav />
     </>
   );

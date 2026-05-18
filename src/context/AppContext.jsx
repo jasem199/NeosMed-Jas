@@ -4,11 +4,59 @@ import { MOCK_FAMILY_MEMBERS } from '../data/mockFamilyData';
 
 const AppContext = createContext(null);
 
+const generateMockTakenMap = () => {
+  const map = {};
+  const today = new Date();
+  
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(today.getDate() - i);
+    const dateKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    
+    if (i === 6) {
+      map[dateKey] = {
+        'med-1_Morning': { taken: true, skipped: false, timestamp: new Date().toISOString() },
+        'med-2_Evening': { taken: true, skipped: false, timestamp: new Date().toISOString() }
+      };
+    } else if (i === 5) {
+      map[dateKey] = {
+        'med-1_Morning': { taken: true, skipped: false, timestamp: new Date().toISOString() },
+        'med-2_Evening': { taken: false, skipped: true, timestamp: new Date().toISOString() }
+      };
+    } else if (i === 4) {
+      map[dateKey] = {
+        'med-1_Morning': { taken: true, skipped: false, timestamp: new Date().toISOString() },
+        'med-2_Evening': { taken: true, skipped: false, timestamp: new Date().toISOString() }
+      };
+    } else if (i === 3) {
+      map[dateKey] = {
+        'med-1_Morning': { taken: false, skipped: true, timestamp: new Date().toISOString() },
+        'med-2_Evening': { taken: true, skipped: false, timestamp: new Date().toISOString() }
+      };
+    } else if (i === 2) {
+      map[dateKey] = {
+        'med-1_Morning': { taken: true, skipped: false, timestamp: new Date().toISOString() },
+        'med-2_Evening': { taken: true, skipped: false, timestamp: new Date().toISOString() }
+      };
+    } else if (i === 1) {
+      map[dateKey] = {
+        'med-1_Morning': { taken: true, skipped: false, timestamp: new Date().toISOString() },
+        'med-2_Evening': { taken: true, skipped: false, timestamp: new Date().toISOString() }
+      };
+    } else if (i === 0) {
+      map[dateKey] = {
+        'med-1_Morning': { taken: true, skipped: false, timestamp: new Date().toISOString() }
+      };
+    }
+  }
+  return map;
+};
+
 export function AppProvider({ children }) {
   const [medicines, setMedicines] = useState(MOCK_MEDICINES);
   const [familyMembers, setFamilyMembers] = useState(MOCK_FAMILY_MEMBERS);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [takenMap, setTakenMap] = useState({});
+  const [takenMap, setTakenMap] = useState(generateMockTakenMap());
   // takenMap shape: { 'YYYY-MM-DD': { 'med-id': { taken: bool, skipped: bool, snoozed: bool, time: string } } }
   const [activeScreen, setActiveScreen] = useState('home'); // home | addManual | scanPrescription | scanReview | scanConfirm
   const [activeTab, setActiveTab] = useState('medication');
@@ -94,15 +142,31 @@ export function AppProvider({ children }) {
   }, [getDateKey, takenMap]);
 
   const addMedicine = useCallback((med) => {
-    const newMed = { ...med, id: `med-${Date.now()}` };
+    const newMed = { ...med, id: `med-${Date.now()}`, status: 'active' };
     setMedicines(prev => [...prev, newMed]);
     return newMed;
   }, []);
 
   const addMedicinesBulk = useCallback((meds) => {
-    const newMeds = meds.map((med, i) => ({ ...med, id: `med-${Date.now()}-${i}` }));
+    const newMeds = meds.map((med, i) => ({ ...med, id: `med-${Date.now()}-${i}`, status: 'active' }));
     setMedicines(prev => [...prev, ...newMeds]);
     return newMeds;
+  }, []);
+
+  const updateMedicine = useCallback((id, updates) => {
+    setMedicines(prev => prev.map(m => m.id === id ? { ...m, ...updates } : m));
+  }, []);
+
+  const deleteMedicine = useCallback((id) => {
+    setMedicines(prev => prev.filter(m => m.id !== id));
+  }, []);
+
+  const refillMedicine = useCallback((id, amount) => {
+    setMedicines(prev => prev.map(m => m.id === id ? { ...m, stock: (m.stock || 0) + parseInt(amount, 10) } : m));
+  }, []);
+
+  const archiveMedicine = useCallback((id) => {
+    setMedicines(prev => prev.map(m => m.id === id ? { ...m, status: 'past' } : m));
   }, []);
 
   const getMedicinesByCategory = useCallback((category) => {
@@ -170,6 +234,10 @@ export function AppProvider({ children }) {
     addFamilyMember,
     removeFamilyMember,
     updateFamilyMemberPermissions,
+    updateMedicine,
+    deleteMedicine,
+    refillMedicine,
+    archiveMedicine,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

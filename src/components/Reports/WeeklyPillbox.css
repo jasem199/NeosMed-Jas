@@ -1,0 +1,97 @@
+.weeklyPillbox-container {
+  background-color: var(--color-surface);
+  border-radius: var(--rounded-lg);
+  padding: var(--spacing-xl);
+  border: 1px solid var(--color-hairline-soft);
+}
+
+.weeklyPillbox-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0 0 var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.weeklyPillbox-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+}
+
+.weeklyPillbox-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.weeklyPillbox-dayLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.weeklyPillbox-day.is-today .weeklyPillbox-dayLabel {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.weeklyPillbox-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--rounded-md);
+  background-color: var(--color-canvas);
+  border: 1.5px solid var(--color-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.weeklyPillbox-day.is-today .weeklyPillbox-box {
+  border-color: var(--color-primary);
+  border-width: 2px;
+  animation: todayPulse 2s ease-in-out infinite;
+}
+
+/* ── Status: Taken — soft green tint ── */
+.weeklyPillbox-box.status-taken {
+  background-color: var(--color-success-pale);
+  border-color: var(--color-success);
+  color: var(--color-success-deep);
+}
+
+/* ── Status: Missed — soft red tint ── */
+.weeklyPillbox-box.status-missed {
+  background-color: rgba(204, 0, 31, 0.08);
+  border-color: var(--color-error-deep);
+  color: var(--color-error-deep);
+}
+
+/* ── Status: Empty — subtle capsule icon ── */
+.weeklyPillbox-box.status-empty {
+  background-color: var(--color-canvas);
+  border-color: var(--color-hairline);
+}
+
+.pillbox-emptyIcon {
+  font-size: 16px;
+  color: var(--color-stone);
+  opacity: 0.6;
+}
+
+/* ── Today Pulse Animation ── */
+@keyframes todayPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(57, 73, 254, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(57, 73, 254, 0.08);
+  }
+}

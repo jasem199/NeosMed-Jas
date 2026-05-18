@@ -1,0 +1,200 @@
+.refillSheet-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.refillSheet-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-surface);
+  border-radius: var(--rounded-lg) var(--rounded-lg) 0 0;
+  z-index: 1001;
+  padding: var(--spacing-xl);
+  padding-bottom: calc(var(--spacing-xl) + env(safe-area-inset-bottom, 20px));
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.refillSheet-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+}
+
+.refillSheet-dragHandle {
+  width: 40px;
+  height: 4px;
+  background-color: var(--color-stone);
+  border-radius: var(--rounded-full);
+  margin-bottom: var(--spacing-md);
+}
+
+.refillSheet-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+  align-self: flex-start;
+}
+
+.refillSheet-closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-hairline);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--color-mute);
+  cursor: pointer;
+}
+
+.refillSheet-medInfo {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--rounded-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.refillSheet-medName {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0 0 4px 0;
+}
+
+.refillSheet-medCurrent {
+  font-size: 14px;
+  color: var(--color-mute);
+  margin: 0;
+}
+
+.refillSheet-medCurrent strong {
+  color: var(--color-ink);
+}
+
+.refillSheet-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.refillSheet-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.refillSheet-inputWrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--rounded-md);
+  padding: 0 var(--spacing-md);
+  height: 52px;
+}
+
+.refillSheet-inputWrapper:focus-within {
+  border-color: var(--color-ink);
+  box-shadow: 0 0 0 3px rgba(57,73,254,0.15);
+}
+
+.refillSheet-input {
+  flex: 1;
+  border: none !important;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-ink);
+  outline: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  padding: 0;
+  -moz-appearance: textfield;
+}
+
+.refillSheet-input::-webkit-outer-spin-button,
+.refillSheet-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.refillSheet-unit {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-mute);
+  margin-left: var(--spacing-sm);
+}
+
+.refillSheet-quickAdd {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.refillSheet-quickBtn {
+  flex: 1;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--rounded-sm);
+  padding: var(--spacing-sm) 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.refillSheet-quickBtn:active {
+  background-color: var(--color-hairline-soft);
+}
+
+.refillSheet-submitBtn {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border: none;
+  border-radius: var(--rounded-md);
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  margin-top: var(--spacing-sm);
+}
+
+.refillSheet-submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refillSheet-submitBtn:active:not(:disabled) {
+  transform: scale(0.98);
+  background-color: var(--color-primary-pressed);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

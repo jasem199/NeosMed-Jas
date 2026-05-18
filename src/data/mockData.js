@@ -14,6 +14,7 @@ export const MOCK_MEDICINES = [
     stock: 21,
     lowStockThreshold: 5,
     note: 'For throat infection',
+    status: 'active',
   },
   {
     id: 'med-2',
@@ -29,6 +30,7 @@ export const MOCK_MEDICINES = [
     stock: 30,
     lowStockThreshold: 10,
     note: '',
+    status: 'active',
   },
   {
     id: 'med-3',
@@ -44,6 +46,7 @@ export const MOCK_MEDICINES = [
     stock: 15,
     lowStockThreshold: 5,
     note: 'Allergy',
+    status: 'active',
   },
   {
     id: 'med-4',
@@ -59,6 +62,7 @@ export const MOCK_MEDICINES = [
     stock: 3,
     lowStockThreshold: 5,
     note: 'Asthma inhaler',
+    status: 'active',
   },
   {
     id: 'med-5',
@@ -74,6 +78,7 @@ export const MOCK_MEDICINES = [
     stock: 60,
     lowStockThreshold: 15,
     note: 'Diabetes management',
+    status: 'active',
   },
   {
     id: 'med-6',
@@ -89,6 +94,7 @@ export const MOCK_MEDICINES = [
     stock: 45,
     lowStockThreshold: 10,
     note: '',
+    status: 'past',
   },
 ];
 

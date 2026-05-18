@@ -1,0 +1,73 @@
+.reportsScreen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-canvas);
+  padding-bottom: 80px; /* Space for BottomNav */
+}
+
+.reportsScreen-header {
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-hairline);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.reportsScreen-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+  letter-spacing: -1.2px;
+}
+
+.reportsScreen-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-mute);
+  margin: var(--spacing-xxs) 0 0 0;
+}
+
+.reportsScreen-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+}
+
+/* ── Section Labels ── */
+.reportsScreen-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.reportsScreen-section:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Staggered Entry Animations ── */
+.reportsScreen-stagger-1 {
+  animation: reportsFadeSlideUp 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+  animation-delay: 0s;
+}
+
+.reportsScreen-stagger-2 {
+  animation: reportsFadeSlideUp 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+  animation-delay: 0.1s;
+}
+
+.reportsScreen-stagger-3 {
+  animation: reportsFadeSlideUp 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+  animation-delay: 0.2s;
+}
+
+@keyframes reportsFadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
